@@ -27,21 +27,21 @@ stat.desc(ebayready)
 #check correlation between independent variables
 cor(ebayready)
 
-y=ebayready1[,9]
-x1= ebayready1[,1]
-x2= ebayready1[,2]
-x3= ebayready1[,3]
-x4= ebayready1[,4]
-x5= ebayready1[,5]
-x6= ebayready1[,6]
-x7= ebayready1[,7]
-x8= ebayready1[,8]
-x9= ebayready1[,10]
-x10= ebayready1[,11]
-x11= ebayready1[,12]
-x12= ebayready1[,13]
-x13= ebayready1[,14]
-X14=ebayready1[,15]
+y=ebayready[,9]
+x1= ebayready[,1]
+x2= ebayready[,2]
+x3= ebayready[,3]
+x4= ebayready[,4]
+x5= ebayready[,5]
+x6= ebayready[,6]
+x7= ebayready[,7]
+x8= ebayready[,8]
+x9= ebayready[,10]
+x10= ebayready[,11]
+x11= ebayready[,12]
+x12= ebayready[,13]
+x13= ebayready[,14]
+X14=ebayready[,15]
 
 
 #regression formula
@@ -144,9 +144,38 @@ y ~ x2 + x3 + x7 + x9
 - x3    1    267780 1087129 937.39
 - x2    1   1213671 2033020 999.99
 
+# so y ~ x2 + x3 + x7 + x9
+# then create regression model
+
+fm5<-lm(y~x2+x3+x7+x9,data=ebayready)
+summary(fm5)
+
+#
+Call:
+lm(formula = y ~ x2 + x3 + x7 + x9, data = ebayready)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-135.78  -62.88  -23.89   35.64  310.99 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 107.15461   22.54593   4.753 7.12e-06 ***
+x2            0.74829    0.06308  11.863  < 2e-16 ***
+x3           12.13633    2.17806   5.572 2.34e-07 ***
+x7           -0.04492    0.02438  -1.843   0.0685 .  
+x9           46.73143   24.01032   1.946   0.0546 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 92.87 on 95 degrees of freedom
+Multiple R-squared:  0.6943,	Adjusted R-squared:  0.6814 
+F-statistic: 53.95 on 4 and 95 DF,  p-value: < 2.2e-16
+
+# p<0.05, accepted. 
 
 #so transaction price has a liner correlation with below variances 
 #X2=starting price 
 #X3=No.of bidders
-#x7=No.of bids in 30days
+#x7=No.of bids in 30days (negative impact)
 #x9=isNew
