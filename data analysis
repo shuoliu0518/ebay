@@ -1,0 +1,49 @@
+getwd()   # get current working directory #
+
+setwd("/Users/shuoliu/Desktop/business data analysis in R")   #set working directory#
+
+ebay1 <- read.csv("ebay.csv",header=TRUE)
+# read the rawdata from ebay.csv and define the data name as ebay1#
+
+# Net step, data processing #
+#convert character variables into dummy variables.
+Isnew<-ifelse(ebay1[,2]=='used',0,1)
+is4<-ifelse(ebay1[,3]=='4',1,0)
+is3GS<-ifelse(ebay1[,3]=='3gs',1,0)
+is8G<-ifelse(ebay1[,4]=='8',1,0)
+is16G<-ifelse(ebay1[,4]=='16',1,0)
+is32G<-ifelse(ebay1[,4]=='32',1,0)
+ebay1<-cbind(ebay1,Isnew,is4,is3GS,is32G,is8G,is16G)
+
+#remove unnecessary column,data process is done, 
+ebayready<-subset(ebay1,select=-c(1:4))
+
+#check Descriptive Statistics
+library(pastecs)
+stat.desc(ebayready)
+
+#check correlation between independent variables
+cor(ebayready)
+
+y=ebayready1[,9]
+x1= ebayready1[,1]
+x2= ebayready1[,2]
+x3= ebayready1[,3]
+x4= ebayready1[,4]
+x5= ebayready1[,5]
+x6= ebayready1[,6]
+x7= ebayready1[,7]
+x8= ebayready1[,8]
+x9= ebayready1[,10]
+x10= ebayready1[,11]
+x11= ebayready1[,12]
+x12= ebayready1[,13]
+x13= ebayready1[,14]
+X14=ebayready1[,15]
+
+
+fm3<-lm(y~x1+x2+x3+x4+x5+x6+x7+x8+x9+x10+x11+x12+x13+x14,data=ebayready)
+summary(fm3)
+
+fm4<-lm(y~x1+x2+x3+x4+x5+x6+x7+x8+x9,data=ebayready)
+summary(fm4)
