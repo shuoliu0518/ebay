@@ -6,7 +6,7 @@
 
 #Conclusion  
 #The regression function shows that the final transaction fee transaction price has a liner correlation with below variances 
-#starting price 
-#No.of bidders
-#No.of bids in 30days
-#isNew
+     #starting price 
+     #No.of bidders
+     #No.of bids in 30days
+     #isNew
