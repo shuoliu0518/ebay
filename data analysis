@@ -1,13 +1,13 @@
-##get current working directory ##
+#get current working directory #
 getwd()   
 
-##set working directory##
+#set working directory#
 setwd("/Users/shuoliu/Desktop/business data analysis in R")   
 ebay1 <- read.csv("ebay.csv",header=TRUE)
 
-##read the rawdata from ebay.csv and define the data name as ebay1#
+#read the rawdata from ebay.csv and define the data name as ebay1#
 
-##Net step, data processing ##
+#Net step, data processing #
 #convert character variables into dummy variables.
 Isnew<-ifelse(ebay1[,2]=='used',0,1)
 is4<-ifelse(ebay1[,3]=='4',1,0)
