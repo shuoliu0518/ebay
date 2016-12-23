@@ -145,7 +145,7 @@ y ~ x2 + x3 + x7 + x9
 - x2    1   1213671 2033020 999.99
 
 
-#so transaction price are having a liner correlation with below variances 
+#so transaction price has a liner correlation with below variances 
 #X2=starting price 
 #X3=No.of bidders
 #x7=No.of bids in 30days
